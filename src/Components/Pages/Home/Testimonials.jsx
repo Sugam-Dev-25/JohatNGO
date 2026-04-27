@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Quotes, StarIcon } from "@phosphor-icons/react";
 import { getTestimonials } from "../../../Api/Api";
+import halftone from "../../../assets/halftone.png";
 
 const Testimonials = () => {
   const [data, setData] = useState([]);
@@ -8,6 +9,18 @@ const Testimonials = () => {
   const [isTransitioning, setIsTransitioning] = useState(true);
   const [index, setIndex] = useState(1);
   const timeoutRef = useRef(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const slideWidth = isMobile ? 100 : 85;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     const loadTestimonials = async () => {
@@ -85,7 +98,7 @@ const Testimonials = () => {
       <div className="absolute inset-0 bg-[#F2F2F2]/70"></div>
 
       {/* CONTENT */}
-      <div className="relative max-w-[1440px] mx-auto grid lg:grid-cols-2 gap-20 items-center px-6">
+      <div className="relative max-w-[1440px] mx-auto grid lg:grid-cols-2 gap-12 md:gap-20 items-center px-6">
 
         {/* LEFT SIDE */}
         <div>
@@ -105,19 +118,25 @@ const Testimonials = () => {
 
         {/* RIGHT SIDE SLIDER */}
         <div className="relative overflow-hidden">
+          <img
+            src={halftone}
+            alt=""
+            className="absolute right-0 top-0 h-full w-auto  pointer-events-none select-none"
+          />
 
           <div
             className="flex"
             style={{
-              transform: `translateX(-${index * 85}%)`,
+              transform: `translateX(-${index * slideWidth}%)`,
               transition: isTransitioning ? "transform 700ms ease-in-out" : "none",
             }}
+
             onTransitionEnd={handleTransitionEnd}
           >
             {extended.map((item, i) => (
               <div
                 key={i}
-                className="pt-10 w-full md:w-[65%] lg:w-full xl:w-[85%] pr-6 flex-shrink-0"
+                className="pt-10 w-full md:w-[65%] lg:w-[90%] xl:w-[85%] pr-6 flex-shrink-0"
               >
                 <div className="bg-white rounded-2xl shadow-xl pt-16 px-4 pb-4  md:px-6 md:pb-6 xl:pb-10 xl:px-10 relative">
 
@@ -160,7 +179,7 @@ const Testimonials = () => {
                     </div>
 
                     <p
-                      className="text-[#6F6F6F] text-sm md:text-base leading-relaxed"
+                      className="text-[#6F6F6F] text-xs md:text-base leading-relaxed"
                       dangerouslySetInnerHTML={{
                         __html: item?.content?.rendered || "",
                       }}
