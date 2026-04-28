@@ -55,10 +55,10 @@ const Donation = () => {
         />
         <div className="relative z-10">
           <div className="mb-8">
-            <span className="relative inline-block text-yellow-500 font-serif italic text-[24px] font-caveat font-bold after:content-[''] after:absolute after:left-0 after:top-0 after:w-1/2 after:border-t-2 after:border-yellow-500">
+            <span className="relative inline-block text-[#FFAC00]  italic text-xl md:text-[24px] font-caveat font-bold after:content-[''] after:absolute after:left-0 after:top-0 after:w-1/2 after:border-t-2 after:border-yellow-500">
               Help us Donate
             </span>
-            <h2 className="font-display text-[50px] font-bold text-slate-900  mt-2">
+            <h2 className="font-display text-[32px] lg:text-[50px] leading-[45px] lg:leading-[60px] tracking-[-2px] font-bold text-slate-900  mt-2">
               Start Donating
             </h2>
           </div>
