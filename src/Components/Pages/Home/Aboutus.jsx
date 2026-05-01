@@ -1,6 +1,52 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react';
+import { Link } from "react-router-dom";
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const Aboutus = () => {
+
+  const rightRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      
+      // Animate children with stagger (better than animating whole div)
+     gsap.fromTo(
+  rightRef.current.children,
+  {
+    y: 140,          // ⬅️ more travel distance (clear motion)
+    opacity: 0,
+    scale: 0.96      // ⬅️ subtle depth (pro feel)
+  },
+  {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    duration: 1.6,   // ⬅️ slower
+    ease: "expo.out",// ⬅️ smoother than power2
+    stagger: 0.4,    // ⬅️ clearer sequence
+    scrollTrigger: {
+      trigger: rightRef.current,
+
+      start: "top 65%",   // ⬅️ MUCH later trigger (key fix)
+      end: "top 30%",
+
+      toggleActions: "play none none reset",
+      // plays only when reached, resets if you scroll back
+
+      once: true, // ⬅️ prevents early accidental play
+      markers: false // set true if you want to debug
+    }
+  }
+)
+    }, rightRef)
+
+    return () => ctx.revert()
+  }, [])
+
+
   return (
         <div className="max-w-[1440px] mx-auto py-16 px-4 md:px-8 lg:px-9 xl:px-[72px] bg-white">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-7 lg:gap-12 items-center">
@@ -8,16 +54,16 @@ const Aboutus = () => {
         {/* Left Column: Image Container */}
         <div className="relative h-[300px] md:h-[500px] lg:h-[640px] w-full overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&q=80"
+            src="/about.png"
             alt="Volunteer reading with children"
             className="w-full h-full object-cover"
           />
         </div>
  
         {/* Right Column: Content */}
-        <div className="space-y-3 lg:space-y-6">
+        <div  ref={rightRef} className="space-y-3 lg:space-y-6">
           <div className="space-y-2">
-            <span className="relative inline-block text-yellow-500 font-serif italic text-[24px] font-caveat font-bold after:content-[''] after:absolute after:left-0 after:top-0 after:w-1/2 after:border-t-2 after:border-yellow-500">
+            <span className="relative inline-block text-[#FFAC00] italic text-xl md:text-[24px] font-caveat font-bold after:content-[''] after:absolute after:left-0 after:top-0 after:w-1/2 after:border-t-2 after:border-yellow-500">
               About Us
             </span>
             <h2 className="font-display font-bold text-[32px] lg:text-[50px] leading-[45px] lg:leading-[60px] tracking-[-2px] text-slate-900 align-middle">
@@ -65,9 +111,11 @@ const Aboutus = () => {
  
           {/* CTA Button */}
           <div className="pt-4">
-            <button className="bg-[#FFAC00] text-white font-bold px-8 py-3 lg:py-4 lg:px-15 uppercase tracking-widest text-xs transition-colors duration-200 transform -skew-x-12">
+            <Link to="/about-us">
+            <button className="cursor-pointer bg-[#FFAC00] text-white font-bold px-8 py-3 lg:py-4 lg:px-15 uppercase tracking-widest text-xs transition-colors duration-200 transform -skew-x-12">
               <span className="inline-block skew-x-12">Learn More</span>
             </button>
+            </Link>
           </div>
         </div>
  
