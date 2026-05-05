@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import { useForm } from "react-hook-form";
+import { Phone, EnvelopeSimpleOpenIcon, MapTrifoldIcon } from "@phosphor-icons/react";
 import { submitDonation } from "../../../Api/Api";
+import { Link } from "react-router-dom";
 const Donation = () => {
   const [form, setForm] = useState({
     name: "",
@@ -53,11 +56,11 @@ const Donation = () => {
           }}
         />
         <div className="relative z-10">
-          <div className="mb-8">
-            <span className="relative inline-block text-[#FFAC00]  italic text-xl md:text-[24px] font-caveat font-bold after:content-[''] after:absolute after:left-0 after:top-0 after:w-1/2 after:border-t-2 after:border-yellow-500">
+          <div className=" mb-8">
+            <span className="relative inline-block text-[#FFAC00]  italic text-xl md:text-[24px] font-caveat font-bold after:content-[''] after:absolute after:left-0 after:top-0 after:w-1/2 after:border-t-2 after:border-yellow-500 pt-2">
               Help us Donate
             </span>
-            <h2 className="font-display text-[32px] lg:text-[50px] leading-[45px] lg:leading-[60px] tracking-[-2px] font-bold text-slate-900  mt-2">
+            <h2 className="font-display text-2xl md:text-[32px] lg:text-[50px] leading-[45px] lg:leading-[60px] tracking-[-2px] font-bold text-slate-900  mt-2">
               Start Donating
             </h2>
           </div>
@@ -101,7 +104,7 @@ const Donation = () => {
             ></textarea>
 
             <div className="pt-4">
-              <button type="submit" className="cursor-pointer bg-[#FFAC00] text-white font-bold px-8 py-3 lg:py-4 lg:px-15 uppercase tracking-widest text-xs transition-colors duration-200 transform -skew-x-12">
+              <button type="submit" className="cursor-pointer bg-[#FFAC00] text-white font-bold px-8 py-3 lg:py-4 lg:px-9 uppercase tracking-widest text-xs hover:bg-[#1F6B5A] hover:scale-110 transition-all duration-300 cursor-pointer transform -skew-x-12">
                 <span className="inline-block skew-x-12 text-xs uppercase tracking-widest">
                   Send a Message
                 </span>
@@ -120,27 +123,25 @@ const Donation = () => {
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="h-full md:h-1/3 bg-amber-500 p-3 lg:p-4 grid grid-cols-1 lg:grid-cols-2 justify-around items-center text-white gap-2 md:gap-6">
+        <div className="h-full md:h-1/3 bg-[#F3B42C] p-3 lg:p-4 grid grid-cols-1 lg:grid-cols-2 justify-around items-center text-white gap-2 md:gap-6">
           <div className="flex items-center gap-2">
             <div className="bg-white p-3 rounded-full text-[#313131] shrink-0">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
-              </svg>
+              <EnvelopeSimpleOpenIcon weight="fill" className=" w-6 h-6 "/>
             </div>
             <div className="text-sm">
-              <p className="font-semibold">johat1011953@outlook.com</p>
-              <p>+1-231-427-2289</p>
+               <a href="mailto:johat1o11953@outlook.com" className="text-xs sm:text-sm xl:text-base">johat1o11953@outlook.com</a><br/>
+              <a href="tel:+1-231-427-2289" className="text-xs sm:text-sm xl:text-base">+1-231-427-2289</a>
             </div>
           </div>
           <div className="flex items-center gap-2">
             <div className="bg-white p-3 rounded-full text-[#313131] shrink-0">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
-              </svg>
+              <MapTrifoldIcon weight="fill" className="w-6 h-6"/>
             </div>
             <div className="text-sm leading-tight">
-              <p className="font-semibold">3975 Pulverwoods Rd,</p>
-              <p>Williamsburg, MI 49690, USA</p>
+              <a href="https://maps.app.goo.gl/PeXnxYz9fCtw14re8" className="text-xs sm:text-sm xl:text-base">
+                                3795 Plymouth Rd<br />
+                                Williamsburg, MI 49690, USA
+                            </a>
             </div>
           </div>
         </div>

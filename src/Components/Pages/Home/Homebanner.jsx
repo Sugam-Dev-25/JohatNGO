@@ -95,7 +95,7 @@ export default function Homebanner() {
             <div
               className="
                 absolute -top-4 left-0 h-[909px] bg-[#1A685B]
-                w-[66%] sm:w-[72%] lg:w-[55%] xl:w-[44%]
+                w-[66%] sm:w-[74%] lg:w-[55%] xl:w-[46%]
               "
               style={{
     clipPath: "polygon(0% 0%, 100% 0%, 66% 100%, 0% 100%)",
@@ -109,7 +109,7 @@ export default function Homebanner() {
                 {/* SUBTITLE */}
                 <div className="flex flex-col items-start gap-3 mb-2">
                   <div className="w-10 h-[2px] bg-[#FFAC00]" />
-                  <p className="text-md md:text-2xl text-[#FFAC00] italic font-caveat">
+                  <p className="text-md md:text-2xl text-[#FFAC00] italic font-caveat font-bold">
                     {slide.subtitle}
                   </p>
                 </div>
@@ -134,7 +134,7 @@ export default function Homebanner() {
 
                 {/* BUTTON */}
                 <Link to="/contact">
-                <button className="cursor-pointer bg-[#FFAC00] -skew-x-[12deg] px-7 py-2 text-sm md:text-base md:px-9 md:py-4">
+                <button className="cursor-pointer bg-[#FFAC00] -skew-x-[12deg] px-7 py-2 text-sm md:text-base md:px-9 md:py-4 hover:scale-110 transition-all duration-300">
                   <span className="block skew-x-[12deg] text-white text-sm font-semibold uppercase">
                     Contact Now
                   </span>

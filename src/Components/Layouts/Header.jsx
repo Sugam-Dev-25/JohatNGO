@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../assets/logo.png";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -16,10 +16,11 @@ export default function Header() {
 
           {/* LEFT LOGO */}
           <div className="flex items-center">
-            <a href="/" className="text-decoration-none"><img
+            <a href="/" className="text-decoration-none">
+            <img
               src={logo}
               alt="logo"
-              className="w-[154px] h-[84px] object-contain"
+              className="w-[134px] md:w-[154px] h-[64px] md:h-[84px] object-contain"
             />
             </a>
           </div>
@@ -31,7 +32,7 @@ export default function Header() {
               className={({ isActive }) =>
                 isActive
                   ? "lg:px-6 py-2.5 text-sm lg:text-base font-[550] text-[#FFAC00]"
-                  : "lg:px-6 py-2.5 text-sm lg:text-base font-[550] text-[#313131]"
+                  : "lg:px-6 py-2.5 text-sm lg:text-base font-[550] text-[#313131] hover:text-[#FFAC00] hover:scale-110 transition-all duration-300"
               }
             >
               Home
@@ -41,7 +42,7 @@ export default function Header() {
               className={({ isActive }) =>
                 isActive
                   ? "lg:px-4 py-2.5 text-sm lg:text-base font-[550] text-[#FFAC00]"
-                  : "lg:px-4 py-2.5 text-sm lg:text-base font-[550] text-[#313131]"
+                  : "lg:px-4 py-2.5 text-sm lg:text-base font-[550] text-[#313131] hover:text-[#FFAC00] hover:scale-110 transition-all duration-300"
               }
             >About Us
             </NavLink>
@@ -50,7 +51,7 @@ export default function Header() {
               className={({ isActive }) =>
                 isActive
                   ? "lg:px-4 py-2.5 text-sm lg:text-base font-[550] text-[#FFAC00]"
-                  : "lg:px-4 py-2.5 text-sm lg:text-base font-[550] text-[#313131]"
+                  : "lg:px-4 py-2.5 text-sm lg:text-base font-[550] text-[#313131] hover:text-[#FFAC00] hover:scale-110 transition-all duration-300"
               }
             >Our Work
             </NavLink>
@@ -59,7 +60,7 @@ export default function Header() {
               className={({ isActive }) =>
                 isActive
                   ? "lg:px-6 py-2.5 text-sm lg:text-base font-[550] text-[#FFAC00]"
-                  : "lg:px-6 py-2.5 text-sm lg:text-base font-[550] text-[#313131]"
+                  : "lg:px-6 py-2.5 text-sm lg:text-base font-[550] text-[#313131] hover:text-[#FFAC00] hover:scale-110 transition-all duration-300"
               }
             >Event
             </NavLink>
@@ -67,11 +68,11 @@ export default function Header() {
 
           {/* RIGHT BUTTON */}
           <div className="flex justify-end items-center py-[22px]">
-            <button className="hidden md:inline-block bg-[#FFAC00] -skew-x-[12deg] px-7 py-2 text-sm md:text-base md:px-9 md:py-4 cursor-pointer">
-                  <span className="block skew-x-[12deg] text-white text-sm font-semibold uppercase">
-                    Give Support
-                  </span>
-                </button>
+            <Link to="/contact" className="hidden md:inline-block bg-[#FFAC00] -skew-x-[12deg] px-7 py-2 text-sm md:text-base md:px-9 md:py-4 hover:bg-[#1F6B5A] hover:scale-110 transition-all duration-300 cursor-pointer">
+              <span className="block skew-x-[12deg] text-white text-sm font-semibold uppercase">
+                Give Support
+              </span>
+            </Link>
 
           </div>
 
@@ -134,12 +135,12 @@ export default function Header() {
           </NavLink>
 
 
-          <button className="md:hidden bg-[#FFAC00] -skew-x-[12deg] px-7 py-2 text-sm md:text-base md:px-9 md:py-4  mx-6 cursor-pointer">
-                  <span className="block skew-x-[12deg] text-white text-sm font-semibold uppercase">
-                    Give Support
-                  </span>
-                </button>
-                
+          <Link to="/contact" className="md:hidden bg-[#FFAC00] -skew-x-[12deg] px-7 py-2 text-sm md:text-base md:px-9 md:py-4  mx-6 cursor-pointer">
+            <span className="block skew-x-[12deg] text-white text-sm font-semibold uppercase">
+              Give Support
+            </span>
+          </Link>
+
 
         </div>
       </div>

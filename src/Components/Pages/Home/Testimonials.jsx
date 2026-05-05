@@ -7,15 +7,26 @@ const Testimonials = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isTransitioning, setIsTransitioning] = useState(true);
-  const [index, setIndex] = useState(0);
+  const [index, setIndex] = useState(1);
   const timeoutRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
-  const slideWidth = isMobile ? 100 : 85;
+
+  // ✅ dynamic width (based on breakpoint EXACTLY like your design)
+  const getSlideWidth = () => {
+    if (typeof window === "undefined") return 100;
+    if (window.innerWidth < 768) return 100;
+    if (window.innerWidth < 1024) return 85;
+    if (window.innerWidth < 1280) return 90;
+    return 85;
+  };
+
+  const [slideWidth, setSlideWidth] = useState(getSlideWidth());
 
   // ✅ responsive
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
+      setSlideWidth(getSlideWidth());
     };
 
     handleResize();
@@ -39,22 +50,22 @@ const Testimonials = () => {
     loadTestimonials();
   }, []);
 
-  // ✅ infinite loop array
+  // ✅ extended array
   const extended =
     data.length > 0
       ? [data[data.length - 1], ...data, data[0]]
       : [];
 
-  // ✅ IMPORTANT: reset index after data loads
+  // ✅ reset index safely after load
   useEffect(() => {
     if (data.length > 0) {
       setIndex(1);
     }
   }, [data]);
 
-  // ✅ autoplay (safe)
+  // ✅ autoplay (fixed)
   useEffect(() => {
-    if (extended.length <= 1) return;
+    if (extended.length <= 1 || loading) return;
 
     timeoutRef.current = setTimeout(() => {
       setIsTransitioning(true);
@@ -62,42 +73,44 @@ const Testimonials = () => {
     }, 3200);
 
     return () => clearTimeout(timeoutRef.current);
-  }, [index, extended.length]);
+  }, [index, extended.length, loading]);
 
-  // ✅ fix transition glitch
+  // ✅ smooth transition reset (IMPORTANT)
   useEffect(() => {
     if (!isTransitioning) {
-      requestAnimationFrame(() => {
+      const id = requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           setIsTransitioning(true);
         });
       });
+      return () => cancelAnimationFrame(id);
     }
   }, [isTransitioning]);
 
-  // ✅ handle loop edges safely
+  // ✅ loop fix (NO GLITCH)
   const handleTransitionEnd = () => {
     if (!extended.length) return;
 
     if (index === extended.length - 1) {
       setIsTransitioning(false);
       setIndex(1);
-    }
-
-    if (index === 0) {
+    } else if (index === 0) {
       setIsTransitioning(false);
       setIndex(extended.length - 2);
     }
   };
 
-  // ✅ VERY IMPORTANT: force layout recalculation
+  // ✅ prevent invalid index (IMPORTANT SAFETY)
   useEffect(() => {
-    if (!loading) {
-      setTimeout(() => {
-        window.dispatchEvent(new Event("resize"));
-      }, 200);
+    if (!extended.length) return;
+
+    if (index >= extended.length) {
+      setIndex(extended.length - 1);
     }
-  }, [loading]);
+    if (index < 0) {
+      setIndex(0);
+    }
+  }, [index, extended.length]);
 
   if (loading) {
     return <p className="text-center py-20">Loading testimonials...</p>;
@@ -106,7 +119,7 @@ const Testimonials = () => {
   return (
     <section className="relative py-32 overflow-hidden">
 
-      {/* BACKGROUND IMAGE */}
+      {/* BACKGROUND */}
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
@@ -115,10 +128,8 @@ const Testimonials = () => {
         }}
       />
 
-      {/* OVERLAY */}
       <div className="absolute inset-0 bg-[#F2F2F2]/70"></div>
 
-      {/* CONTENT */}
       <div className="relative max-w-[1440px] mx-auto grid lg:grid-cols-2 gap-12 md:gap-20 items-center px-6">
 
         {/* LEFT */}
@@ -137,7 +148,7 @@ const Testimonials = () => {
           </p>
         </div>
 
-        {/* RIGHT SLIDER */}
+        {/* RIGHT */}
         <div className="relative overflow-hidden">
           <img
             src={halftone}
@@ -148,11 +159,10 @@ const Testimonials = () => {
           <div
             className="flex"
             style={{
-              transform:
-                extended.length > 0
-                  ? `translateX(-${index * slideWidth}%)`
-                  : "translateX(0)",
-              transition: isTransitioning ? "transform 700ms ease-in-out" : "none",
+              transform: `translateX(-${index * slideWidth}%)`,
+              transition: isTransitioning
+                ? "transform 700ms ease-in-out"
+                : "none",
             }}
             onTransitionEnd={handleTransitionEnd}
           >
@@ -214,7 +224,7 @@ const Testimonials = () => {
               <button
                 key={i}
                 onClick={() => setIndex(i + 1)}
-                className={`cursor-pointer w-2.5 h-2.5 rounded-full transition ${
+                className={`w-2.5 h-2.5 rounded-full ${
                   index === i + 1 ? "bg-green-700" : "bg-gray-300"
                 }`}
               />

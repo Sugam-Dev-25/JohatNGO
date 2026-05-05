@@ -9,8 +9,11 @@ const VolunteerDonateSection = () => {
 
   return (
     <>
-      <section className="py-12 px-6">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-6">
+      <section>
+        {/*  Overlay */}
+      <div className="bg-[#F6F3EA] w-full h-[133px]"></div>    
+          {/* 🔥 CARD 1 */}
+        <div className=" max-w-[1440px] pb-12 px-4 md:px-8 lg:px-12 xl:px-[72px] mx-auto grid md:grid-cols-2 gap-5 -mt-[133px]">
           {/* 🔥 CARD 1 */}
           <div className="relative rounded-3xl overflow-hidden">
             {/* Image */}
@@ -24,7 +27,7 @@ const VolunteerDonateSection = () => {
             <div className="absolute inset-0 bg-[#1f6f64]/80"></div>
 
             {/* Content */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 text-white">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
               <h2 className="text-3xl md:text-4xl font-bold font-display mb-3">
                 Become a Volunteer
               </h2>
@@ -35,11 +38,9 @@ const VolunteerDonateSection = () => {
                 need.
               </p>
 
-              <Link to="/contact" className="inline-block relative">
-                <span className="absolute inset-0 bg-[#f59e0b] skew-x-[-20deg]"></span>
-
-                <span className="relative px-10 py-2 text-white font-semibold text-sm md:text-base block">
-                  JOIN NOW
+              <Link to="/contact" className="relative inline-block  cursor-pointer w-fit bg-[#FFAC00] -skew-x-[12deg] px-10 py-2.5 text-sm md:text-base  hover:scale-110 transition-all duration-300">
+                  <span className="block skew-x-[12deg] text-white text-sm font-semibold uppercase">
+                   Join Now
                 </span>
               </Link>
             </div>
@@ -58,7 +59,7 @@ const VolunteerDonateSection = () => {
             <div className="absolute inset-0 bg-black/70"></div>
 
             {/* Content */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6 text-white">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
               <h2 className="text-3xl md:text-4xl font-bold font-display mb-3">
                 Donate Now
               </h2>
@@ -71,12 +72,9 @@ const VolunteerDonateSection = () => {
 
               <button
                 onClick={() => setOpen(true)}
-                className="relative inline-block"
-              >
-                <span className="absolute inset-0 bg-[#f59e0b] skew-x-[-20deg]"></span>
-
-                <span className="relative block px-10 py-2 text-white font-semibold text-sm md:text-base cursor-pointer">
-                  DONATE NOW
+                className="relative inline-block  cursor-pointer w-fit bg-[#FFAC00] -skew-x-[12deg] px-8 py-2.5 text-sm md:text-base  hover:scale-110 transition-all duration-300">
+                  <span className="block skew-x-[12deg] text-white text-sm font-semibold uppercase">
+                    Donate Now
                 </span>
               </button>
             </div>
