@@ -49,7 +49,7 @@ const Aboutus = () => {
 
   return (
         <div className="max-w-[1440px] mx-auto py-16 px-4 md:px-8 lg:px-9 xl:px-[72px] bg-white">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-7 lg:gap-12 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-7 lg:gap-[137px] items-start">
  
         {/* Left Column: Image Container */}
         <div className="relative h-[300px] md:h-[500px] lg:h-[640px] w-full overflow-hidden">
@@ -112,7 +112,7 @@ const Aboutus = () => {
           {/* CTA Button */}
           <div className="pt-4">
             <Link to="/about-us">
-            <button className="cursor-pointer bg-[#FFAC00] text-white font-bold px-8 py-3 lg:py-4 lg:px-12 uppercase tracking-widest text-xs hover:bg-[#1F6B5A] hover:scale-110 transition-all duration-300 transform -skew-x-12">
+            <button className="cursor-pointer bg-[#FFAC00] text-white font-semibold px-8 py-3 lg:py-4 lg:px-12 uppercase tracking-widest text-xs hover:bg-[#1F6B5A] hover:scale-110 transition-all duration-300 transform -skew-x-12">
               <span className="inline-block skew-x-12">Learn More</span>
             </button>
             </Link>

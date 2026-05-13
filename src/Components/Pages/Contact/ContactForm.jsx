@@ -86,12 +86,13 @@ export default function ContactForm() {
 
   const required = { required: "This field is required" };
   return (
-    <div className="w-full grid grid-cols-1 lg:grid-cols-[1fr_1.05fr]">
+    <section className="bg-[#F7F7F7] overflow-hidden">
+    <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_1.05fr]">
 
       {/* LEFT: FORM */}
-      <div className="bg-[#F7F7F7] px-4 md:px-8 lg:px-12 xl:px-[72px] py-20 lg:py-[150px]">
+      <div className="relative px-4 md:px-8 lg:px-12 xl:px-[72px] py-20 lg:py-[150px]">
         <div className="w-10 h-[2px] bg-[#FFAC00]" />
-        <p className="text-md md:text-2xl text-[#FFAC00] italic font-caveat pt-1">
+        <p className="text-md md:text-2xl text-[#FFAC00] italic font-caveat pt-1 font-bold">
           Contact Now
         </p>
 
@@ -233,7 +234,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={submitting}
-            className={`bg-[#FFAC00] -skew-x-[12deg] px-7 py-2 md:px-9 md:py-4 transition-all duration-300
+            className={`cursor-pointer bg-[#FFAC00] -skew-x-[12deg] px-7 py-2 md:px-9 md:py-4 transition-all duration-300
     ${submitting ? "opacity-50 cursor-not-allowed" : "hover:bg-[#1F6B5A] hover:scale-110"}
   `}
           >
@@ -245,57 +246,58 @@ export default function ContactForm() {
       </div>
 
       {/* RIGHT: MAP */}
-      <div className="relative w-full h-[500px] lg:h-auto">
+      <div className="relative w-full h-[600px] lg:h-auto">
 
         {/* Google Map */}
-        <iframe
-          title="map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2833.892409020854!2d-85.37938472406391!3d44.742211781320904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x881fc4c0bf24a8e9%3A0x59afda054e8f9833!2s3975%20Pulverwoods%20Rd%2C%20Williamsburg%2C%20MI%2049690%2C%20USA!5e0!3m2!1sen!2sin!4v1777630601128!5m2!1sen!2sin"
-          className="w-full h-full border-0"
-          loading="lazy"
-        ></iframe>
+        <iframe title="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2833.8925943723907!2d-85.37680979999999!3d44.742208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x881fc4c0bf24a8e9%3A0x59afda054e8f9833!2s3975%20Pulverwoods%20Rd%2C%20Williamsburg%2C%20MI%2049690%2C%20USA!5e0!3m2!1sen!2sin!4v1778653625302!5m2!1sen!2sin" className="w-full h-full border-0"
+          loading="lazy"></iframe>
+        
 
         {/* YELLOW CARD */}
-        <div className="absolute left-0 bottom-0 bg-[#FFAC00] text-white px-4 py-8 md:w-[40%] space-y-4 xl:pl-9 xl:pr-14 xl:py-[44px] lg:w-[55%] xl:space-y-6 shadow-lg">
+        <div className="absolute left-0 bottom-0 bg-[#FFAC00] text-white p-4 w-[65%] space-y-2 sm:space-y-4 xl:pl-7 xl:pr-12 xl:py-[30px] md:w-[50%] shadow-lg">
 
           {/* Phone */}
-          <div className="flex gap-6 border-b border-white/40 pb-2 xl:pb-6">
-            <div className="w-[48px] h-[48px] rounded-full bg-white/20 flex items-center justify-center">
-              <Phone className="text-white w-10 h-10 xl:w-14 xl:h-14  ml-5 mt-7" />
+          <div className="flex gap-6 border-b border-white/40 pb-1 xl:pb-6">
+            <div className="w-10 h-10 sm:w-[48px] sm:h-[48px] rounded-full bg-white/20 flex items-center justify-center">
+              <Phone className="text-white w-8 h-8 xl:w-14 xl:h-14  ml-5 mt-7" />
             </div>
             <div>
-              <p className="font-medium text-base sm:text-xl xl:text-[30px] leading-relaxed font-display">Phone</p>
-              <a href="tel:+1-231-427-2289" className="text-xs sm:text-sm xl:text-base">+1-231-427-2289</a><br />
-              <a href="tel:+1-231-459-6853" className="text-xs sm:text-sm xl:text-base">+1-231-459-6853</a>
+              <p className="font-medium text-sm sm:text-xl xl:text-[30px] leading-relaxed font-display">Phone</p>
+              <a href="tel:+12314272289" className="text-xs sm:text-sm xl:text-base">+1-231-427-2289</a><br />
+              <a href="tel:+12314596853" className="text-xs sm:text-sm xl:text-base">+1-231-459-6853</a>
             </div>
           </div>
 
 
 
           {/* Email */}
-          <div className="flex gap-6 border-b border-white/40 pb-2 xl:pb-6">
-            <div className="w-[48px] h-[48px] rounded-full bg-white/20 flex items-center justify-center">
-              <EnvelopeSimple weight="fill" className="text-white w-10 h-10 xl:w-14 xl:h-14  ml-5 mt-7" />
+          <div className="flex gap-6 border-b border-white/40 pb-1 xl:pb-6">
+            <div className="w-10 h-10 sm:w-[48px] sm:h-[48px] rounded-full bg-white/20 flex items-center justify-center">
+              <EnvelopeSimple weight="fill" className="text-white w-8 h-8 xl:w-14 xl:h-14  ml-5 mt-7" />
             </div>
 
             <div>
-              <p className="font-medium text-base sm:text-xl xl:text-[30px] leading-relaxed font-display">Email</p>
-              <a href="mailto:johat1o11953@outlook.com" className="text-xs sm:text-sm xl:text-base">johat1o11953@outlook.com</a><br />
-              <a href="mailto:james@johatenterises.com" className="text-xs sm:text-sm xl:text-base">james@johatenterises.com</a>
+              <p className="font-medium text-sm sm:text-xl xl:text-[30px] leading-relaxed font-display">Email</p>
+              <a href="mailto:Johat1o153@gmail.com" className="text-xs sm:text-sm xl:text-base">Johat1o153@gmail.com</a>
+              
             </div>
           </div>
 
           {/* Location */}
           <div className="flex gap-6">
-            <div className="w-[48px] h-[48px] rounded-full bg-white/20 flex items-center justify-center">
-              <MapPin weight="fill" className="text-white w-10 h-10 xl:w-14 xl:h-14  ml-5 mt-7" />
+            <div className="w-10 h-10 sm:w-[48px] sm:h-[48px] rounded-full bg-white/20 flex items-center justify-center">
+              <MapPin weight="fill" className="text-white w-8 h-8 xl:w-14 xl:h-14  ml-5 mt-7" />
             </div>
 
             <div>
-              <p className="font-medium text-base sm:text-xl xl:text-[30px] leading-relaxed font-display">Location</p>
-              <a href="https://maps.app.goo.gl/PeXnxYz9fCtw14re8" className="text-xs sm:text-sm xl:text-base">
-                3795 Plymouth Rd<br />
-                Williamsburg, MI 49690, USA
+              <p className="font-medium text-sm sm:text-xl xl:text-[30px] leading-relaxed font-display">Location</p>
+               <a
+                  href="https://maps.app.goo.gl/Gx527db4EptJa5FK9"
+                  target="_blank"
+                  rel="noopener noreferrer" className="text-xs sm:text-sm xl:text-base">
+                                 3975 Pulverwoods Rd,<br/>
+                 Williamsburg, MI 49690, USA
+                          
               </a>
             </div>
           </div>
@@ -303,6 +305,7 @@ export default function ContactForm() {
         </div>
       </div>
     </div>
+    </section>
   );
 };
 

@@ -5,7 +5,7 @@ const CallToAction = () => {
     <section className="relative h-[400px] md:h-[490px] lg:h-[524px] w-full flex items-center justify-center text-center overflow-hidden">
       {/* Background Image with Dark Overlay */}
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 z-0 bg-cover bg-top bg-no-repeat"
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/cta.jpg')`,
           filter: 'grayscale(100%)'
@@ -32,7 +32,7 @@ const CallToAction = () => {
         {/* Skewed CTA Button */}
         <div className="pt-4 flex justify-center">
            <Link to="/contact">
-          <button className="bg-[#FFAC00] text-white font-bold px-8 py-3 lg:py-4 lg:px-15 uppercase tracking-widest text-xs  transform -skew-x-12 hover:bg-[#1F6B5A] hover:scale-110 transition-all duration-300 cursor-pointer">
+          <button className="bg-[#FFAC00] text-white font-semibold px-8 py-3 lg:py-4 lg:px-14 uppercase tracking-widest text-xs  transform -skew-x-12 hover:bg-[#1F6B5A] hover:scale-110 transition-all duration-300 cursor-pointer">
             <span className="inline-block skew-x-12">Join Now</span>
           </button>
           </Link>

@@ -1,7 +1,7 @@
 import React from "react";
 import foot from "../../assets/footer_background.png";
 import logo from "../../assets/johat_logo.png";
-import { FacebookLogo, InstagramLogo, XLogoIcon, PinterestLogo } from "@phosphor-icons/react";
+import { FacebookLogo, InstagramLogo, XLogoIcon, LinkedinLogo } from "@phosphor-icons/react";
 import { MapPinIcon, Phone, EnvelopeSimpleOpenIcon } from "@phosphor-icons/react";
 
 const Footer = () => {
@@ -117,12 +117,12 @@ const Footer = () => {
                 />
 
                 <a
-                  href="https://maps.app.goo.gl/2kmyUZe9Ac4b7R2z8"
+                  href="https://maps.app.goo.gl/YoTJesW9QNg3Xaus6"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[16px] font-medium leading-[24px] hover:translate-x-[6px] transition inline-block"
                 >
-                  3975 Purverwoods Rd, Williamsburg, MI 49690, USA
+                  3975 Pulverwoods Rd, Williamsburg, MI 49690, USA
                 </a>
               </li>
 
@@ -151,10 +151,10 @@ const Footer = () => {
               <li className="flex items-center gap-3">
                 <EnvelopeSimpleOpenIcon size={28} weight="regular" className="text-[#FFAC00] shrink-0" />
                 <a
-                  href="mailto:johat101953@outlook.com"
+                  href="mailto:Johat1o153@gmail.com"
                   className="text-[16px] font-medium hover:translate-x-[6px] transition inline-block"
                 >
-                  johat101953@outlook.com
+                  Johat1o153@gmail.com
                 </a>
               </li>
 
@@ -166,11 +166,11 @@ const Footer = () => {
         <div className="mt-[60px] mb-[42px] flex justify-center">
           <div className="w-full max-w-[1170px] bg-[#232323] rounded-[10px] px-[20px] xl:px-[30px] h-auto md:h-[100px] py-4 md:py-0 flex flex-col md:flex-row items-center justify-between">         {/* Left Text */}
             <p className="text-[15px] text-[#898989] text-center md:text-left">
-              © Copyright Year{" "}
+              © Copyright Year 2026{" "}
               <span className="text-[#FFAC00]">
                 Johat Charitable Trust
               </span>
-              . All Rights Reserved by{" "}
+              . Design and Developed by{" "}
               <a
                 href="https://ahaansoftware.com/"
                 target="_blank"
@@ -184,19 +184,9 @@ const Footer = () => {
             {/* Social Icons */}
             <div className="flex gap-4 mt-4 md:mt-0">
 
-              {/* Twitter */}
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full bg-[#FFAC00] flex items-center justify-center hover:scale-110 transition"
-              >
-                <XLogoIcon size={20} weight="regular" className="text-white" />
-              </a>
-
               {/* Facebook */}
               <a
-                href="#"
+                href="https://www.facebook.com/johat1953"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-[#FFAC00] flex items-center justify-center hover:scale-110 transition"
@@ -205,25 +195,37 @@ const Footer = () => {
               </a>
 
 
-              {/* Pinterest */}
+              {/* Twitter */}
               <a
-                href="#"
+                href="https://x.com/JohatEnter3002"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-[#FFAC00] flex items-center justify-center hover:scale-110 transition"
               >
-                <PinterestLogo size={20} weight="regular" className="text-white" />
+                <XLogoIcon size={20} weight="regular" className="text-white" />
               </a>
 
               {/* Instagram */}
               <a
-                href="#"
+                href="https://www.instagram.com/accounts/login/?next=%2Fjohatenterprises%2F&source=omni_redirect"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-[#FFAC00] flex items-center justify-center hover:scale-110 transition"
               >
                 <InstagramLogo size={20} weight="regular" className="text-white" />
               </a>
+
+
+              {/* LinkedinLogo */}
+              <a
+                href="https://www.linkedin.com/in/james-taylor-69b20544/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-[#FFAC00] flex items-center justify-center hover:scale-110 transition"
+              >
+                <LinkedinLogo size={20} weight="regular" className="text-white" />
+              </a>
+
 
             </div>
 

@@ -50,7 +50,7 @@ const required = { required: "This field is required" };
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-white rounded-3xl w-full max-w-3xl p-10 relative shadow-xl"
+        className="bg-white rounded-xl md:rounded-3xl w-full max-w-3xl p-5 md:p-10 relative shadow-xl max-h-[90vh] overflow-y-auto no-scrollbar"
       >
         {/* Close Button */}
         <button
@@ -61,7 +61,7 @@ const required = { required: "This field is required" };
         </button>
 
         {/* 🔥 LOGO CENTER */}
-        <div className="flex justify-center mb-4">
+        <div className="flex justify-center mb-2 md:mb-4">
           <img
             src="/logo.png" // 👉 change with your logo path
             alt="logo"
@@ -70,17 +70,17 @@ const required = { required: "This field is required" };
         </div>
 
         {/* Heading */}
-        <h3 className="text-2xl md:text-3xl font-bold text-center mb-8 font-display">
+        <h3 className="text-lg md:text-3xl font-bold text-center mb-2 md:mb-8 font-display">
           Donate for <span dangerouslySetInnerHTML={{ __html: service }} />
         </h3>
 
         {/* Form */}
         <form
          onSubmit={handleSubmit(onSubmitForm)}
-          className="grid grid-cols-1 md:grid-cols-2 gap-5"
+          className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-5"
         >
           {/* Inputs */}
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-1 sm:gap-2">
           <input
             {...register("first_name", {
                       required: "First Name is required",
@@ -94,10 +94,10 @@ const required = { required: "This field is required" };
             className="input-modern"
           />
           {errors.first_name && (
-                    <p className="text-red-500 text-xs">{errors.first_name.message}</p>
+                    <p className="text-red-500 text-[10px]">{errors.first_name.message}</p>
                   )}
                   </div>
-                  <div className="flex flex-col gap-2">
+                  <div className="flex flex-col gap-1 sm:gap-2">
           <input
             {...register("last_name", {
                       required: "Last Name is required",
@@ -111,10 +111,10 @@ const required = { required: "This field is required" };
             className="input-modern"
           />
           {errors.last_name && (
-                    <p className="text-red-500 text-xs">{errors.last_name.message}</p>
+                    <p className="text-red-500 text-[10px]">{errors.last_name.message}</p>
                   )}
 </div>
-<div className="flex flex-col gap-2">
+<div className="flex flex-col gap-1 sm:gap-2">
           <input
            {...register("email", {
                       required: "Email is required",
@@ -129,10 +129,10 @@ const required = { required: "This field is required" };
             className="input-modern"
           />
           {errors.email && (
-                    <p className="text-red-500 text-xs">{errors.email.message}</p>
+                    <p className="text-red-500 text-[10px]">{errors.email.message}</p>
                   )}
 </div>
-<div className="flex flex-col gap-2">
+<div className="flex flex-col gap-1 sm:gap-2">
           <input
             {...register("phone", {
             required: "Phone number is required",
@@ -194,7 +194,7 @@ const required = { required: "This field is required" };
             className="input-modern"
           />
           {errors.phone && (
-                    <p className="text-red-500 text-xs">{errors.phone.message}</p>
+                    <p className="text-red-500 text-[10px]">{errors.phone.message}</p>
                   )}
 </div>
 <div className="flex flex-col gap-2 md:col-span-2">
@@ -204,31 +204,32 @@ const required = { required: "This field is required" };
             className="input-modern "
           />
           {errors.address && (
-                    <p className="text-red-500 text-xs">{errors.address.message}</p>
+                    <p className="text-red-500 text-[10px]">{errors.address.message}</p>
                   )}
 </div>
-<div className="flex flex-col gap-2">
+<div className="flex flex-col gap-1 sm:gap-2">
           <input
             {...register("country", { required: "Country is required" })}
             placeholder="Country"
             className="input-modern"
           />
           {errors.country && (
-                    <p className="text-red-500 text-xs">{errors.country.message}</p>
+                    <p className="text-red-500 text-[10px]">{errors.country.message}</p>
                   )}
 </div>
-<div className="flex flex-col gap-2">
+<div className="flex flex-col gap-1 sm:gap-2">
           <input
             {...register("amount", { required: "Please donate some amount" })}
             type="number"
+            min="1"
             placeholder="Donate Amount"
             className="input-modern"
           />
           {errors.amount && (
-                    <p className="text-red-500 text-xs">{errors.amount.message}</p>
+                    <p className="text-red-500 text-[10px]">{errors.amount.message}</p>
                   )}
 </div>
-<div className="flex flex-col gap-2 md:col-span-2">
+<div className="flex flex-col gap-1 sm:gap-2 md:col-span-2">
           <textarea
             {...register("comments")}
             placeholder="Comments"
@@ -239,7 +240,7 @@ const required = { required: "This field is required" };
           {/* Submit Button */}
           <button
             type="submit"
-            className="md:col-span-2 bg-[#f59e0b] hover:bg-[#d97706] transition-all duration-300 text-white py-3 rounded-lg font-semibold shadow-md"
+            className="cursor-pointer md:col-span-2 bg-[#f59e0b] hover:bg-[#d97706] transition-all duration-300 text-white py-2 text-xs sm:text-base sm:py-3 rounded-lg font-semibold shadow-md"
           >
             Submit Now
           </button>
